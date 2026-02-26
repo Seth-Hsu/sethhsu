@@ -3,33 +3,465 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Seth Hsu</title>
+  <title>Seth Hsu | 许明良</title>
+  <meta
+    name="description"
+    content="许明良（Seth Hsu）的个人主页，聚焦战略咨询、管理咨询、行业研究与AI实践。"
+  />
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 760px;
-      margin: 80px auto;
-      padding: 0 24px;
-      line-height: 1.7;
-      color: #222;
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #161616;
+      --muted: #666666;
+      --line: #e7e7e7;
+      --accent: #111111;
+      --max: 1080px;
     }
-    h1 { font-size: 42px; margin-bottom: 8px; }
-    h2 { font-size: 22px; margin-top: 40px; }
-    p { font-size: 18px; color: #444; }
-    .muted { color: #777; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(247, 247, 245, 0.88);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .brand {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 88px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #fff;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1.08;
+      margin: 0 0 18px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      font-size: 20px;
+      color: #333;
+      margin: 0 0 28px;
+    }
+
+    .hero-note {
+      max-width: 760px;
+      font-size: 16px;
+      color: var(--muted);
+      margin: 0 0 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 18px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid var(--line);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: #cfcfcf;
+      background: #fcfcfc;
+    }
+
+    .section {
+      padding: 28px 0 28px;
+    }
+
+    .section-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 0 2px 18px rgba(0, 0, 0, 0.03);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .list-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .list-index {
+      min-width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #111;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .list-content h4 {
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    .list-content p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .quote {
+      padding: 28px;
+      background: #111;
+      color: #fff;
+      border-radius: 20px;
+      margin: 24px 0 0;
+    }
+
+    .quote p {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 14px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .contact-box p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 50px 0 70px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-line {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        gap: 14px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .hero {
+        padding-top: 64px;
+      }
+
+      .quote p {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Seth Hsu</h1>
-  <p class="muted">管理咨询 / 战略咨询 / AI 实践</p>
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Seth Hsu / 许明良</div>
+      <nav class="nav-links">
+        <a href="#about">关于</a>
+        <a href="#focus">研究方向</a>
+        <a href="#work">工作内容</a>
+        <a href="#contact">联系</a>
+      </nav>
+    </div>
+  </header>
 
-  <h2>关于我</h2>
-  <p>这里是我的个人主页。未来会放咨询方向、研究主题、AI实践和联系方式。</p>
+  <main>
+    <section class="hero container">
+      <div class="eyebrow">Strategy · Management · AI Practice</div>
+      <h1>以系统视角<br />重构战略、管理与增长。</h1>
+      <p class="hero-subtitle">
+        我是许明良（Seth Hsu），关注战略咨询、管理咨询、行业研究与 AI 实践，
+        致力于将商业逻辑、系统思维与组织管理方法结合，形成可落地的分析框架与实践路径。
+      </p>
+      <p class="hero-note">
+        这里将持续沉淀我的研究主题、方法论框架、项目实践、工具模板与长期思考。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">联系我</a>
+        <a class="btn btn-secondary" href="#work">查看方向</a>
+      </div>
+    </section>
 
-  <h2>研究方向</h2>
-  <p>战略、管理、行业研究、系统论、商业逻辑。</p>
+    <section class="section container" id="about">
+      <p class="section-title">About</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>战略咨询</h3>
+          <p>
+            聚焦企业战略解构、竞争逻辑、增长路径与中长期发展方向，帮助企业形成更清晰的战略地图。
+          </p>
+        </div>
+        <div class="card">
+          <h3>管理咨询</h3>
+          <p>
+            关注组织机制、管理体系、流程协同与经营改善，将方法论转化为更强的执行力与经营结果。
+          </p>
+        </div>
+        <div class="card">
+          <h3>AI实践</h3>
+          <p>
+            探索 AI 在咨询、研究、知识管理与业务场景中的应用，推动工具使用走向系统化与资产化。
+          </p>
+        </div>
+      </div>
+    </section>
 
-  <h2>联系</h2>
-  <p>你可以稍后在这里补充邮箱、微信或合作方式。</p>
+    <section class="section container" id="focus">
+      <p class="section-title">Research Focus</p>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>核心研究方向</h3>
+          <div class="list">
+            <div class="list-item">
+              <div class="list-index">01</div>
+              <div class="list-content">
+                <h4>战略与经营</h4>
+                <p>企业战略、竞争分析、业务结构、增长模式、经营改善与中长期规划。</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-index">02</div>
+              <div class="list-content">
+                <h4>组织与管理体系</h4>
+                <p>组织机制、流程体系、产品管理、研发管理与跨部门协同。</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-index">03</div>
+              <div class="list-content">
+                <h4>行业研究与方法论</h4>
+                <p>行业洞察、商业模式分析、理论框架沉淀与结构化研究表达。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>长期关注主题</h3>
+          <div class="list">
+            <div class="list-item">
+              <div class="list-index">A</div>
+              <div class="list-content">
+                <h4>系统论与商业逻辑</h4>
+                <p>从系统视角理解企业问题，识别结构性矛盾、关键变量与约束条件。</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-index">B</div>
+              <div class="list-content">
+                <h4>AI 与咨询融合</h4>
+                <p>把 AI 从单点工具使用，推进到咨询流程、知识资产与业务协同体系中。</p>
+              </div>
+            </div>
+            <div class="list-item">
+              <div class="list-index">C</div>
+              <div class="list-content">
+                <h4>知识沉淀与认知升级</h4>
+                <p>建立长期可复用的知识框架、研究体系与个人方法资产。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote">
+        <p>“真正有效的咨询，不只是提出观点，而是帮助企业看清结构、找到路径，并推动改变发生。”</p>
+        <small>— Seth Hsu</small>
+      </div>
+    </section>
+
+    <section class="section container" id="work">
+      <p class="section-title">What I Do</p>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>战略分析</h3>
+          <p>围绕企业战略、业务组合、增长逻辑与竞争格局，形成系统性分析与决策支持。</p>
+        </div>
+        <div class="card">
+          <h3>管理优化</h3>
+          <p>围绕组织、流程、产品管理、研发管理与经营机制，推动管理体系改进。</p>
+        </div>
+        <div class="card">
+          <h3>研究与输出</h3>
+          <p>通过研究文章、框架模型、案例沉淀与 AI 工具实践，形成长期可复用的方法资产。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="contact">
+      <p class="section-title">Contact</p>
+      <div class="card contact-box">
+        <h3>联系与合作</h3>
+        <p>如果你希望交流战略咨询、管理体系、行业研究或 AI 实践相关议题，欢迎联系。</p>
+        <p><strong>邮箱：</strong> sethhsu@163.com</p>
+        <p><strong>网站：</strong> sethhsu.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="footer-line">
+      <div>© 2026 Seth Hsu / 许明良</div>
+      <div>Built with GitHub Pages</div>
+    </div>
+  </footer>
 </body>
 </html>
