@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article>
+  <header class="page-hero frame article-hero">
+    <p class="eyebrow">{{ page.kicker | default: "文章" }}</p>
+    {% if page.sample %}
+    <p class="sample-banner">示例文章。此页只演示版式与发布流程，不是研究结论，也不包含客户、数据或案例。</p>
+    {% endif %}
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="dek">{{ page.description }}</p>{% endif %}
+    <p class="article-meta"><span>许明良 Seth Hsu</span><time datetime="{{ page.date | date: '%Y-%m-%d' }}">{{ page.date | date: "%Y.%m.%d" }}</time></p>
+  </header>
+  <div class="reading-column">
+    <div class="prose">
+      {{ content }}
+    </div>
+    <div class="article-end">
+      <a class="text-link" href="/articles/">返回文章列表 <span>→</span></a>
+      <a class="text-link" href="/research/">进入研究体系 <span>→</span></a>
+    </div>
+  </div>
+</article>

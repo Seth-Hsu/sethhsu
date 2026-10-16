@@ -1,0 +1,21 @@
+{%- assign here = include.current -%}
+<header class="site-header light frame">
+  <a class="brand" href="/" aria-label="商业系统实验室首页"><span class="brand-mark">BS</span><span class="brand-text"><b>商业系统实验室</b><small>BUSINESS SYSTEMS LAB</small></span></a>
+  <nav class="desktop-nav" aria-label="主导航">
+    <a href="/research/"{% if here == "research" %} aria-current="page"{% endif %}>研究</a>
+    <a href="/insights/"{% if here == "insights" %} aria-current="page"{% endif %}>研究目录</a>
+    <a href="/articles/"{% if here == "articles" %} aria-current="page"{% endif %}>文章</a>
+    <a href="/work/"{% if here == "work" %} aria-current="page"{% endif %}>实践</a>
+    <a href="/about/"{% if here == "about" %} aria-current="page"{% endif %}>关于</a>
+  </nav>
+  <a class="nav-contact" href="/contact/"{% if here == "contact" %} aria-current="page"{% endif %}>联系 / CONTACT <span>↗</span></a>
+  <button type="button" class="menu-toggle" data-menu aria-controls="mobile-menu" aria-expanded="false">菜单</button>
+  <nav class="mobile-nav" id="mobile-menu" aria-label="移动端导航">
+    <a href="/research/"{% if here == "research" %} aria-current="page"{% endif %}>研究</a>
+    <a href="/insights/"{% if here == "insights" %} aria-current="page"{% endif %}>研究目录</a>
+    <a href="/articles/"{% if here == "articles" %} aria-current="page"{% endif %}>文章</a>
+    <a href="/work/"{% if here == "work" %} aria-current="page"{% endif %}>实践</a>
+    <a href="/about/"{% if here == "about" %} aria-current="page"{% endif %}>关于</a>
+    <a href="/contact/"{% if here == "contact" %} aria-current="page"{% endif %}>联系</a>
+  </nav>
+</header>

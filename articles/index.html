@@ -1,0 +1,30 @@
+---
+layout: default
+title: 文章
+description: 商业系统实验室的公开文章。标为示例的条目只演示版式，不是研究结论。
+nav: articles
+og_type: website
+permalink: /articles/
+---
+<section class="page-hero frame">
+  <p class="eyebrow">ARTICLES / 文章</p>
+  <h1>把可以公开的判断，写成文章。</h1>
+  <p>这里收录实验室的公开文章。标为「示例」的条目只演示版式与发布方式，不是研究结论，也不包含客户、数据或案例。</p>
+</section>
+<section class="content-section frame article-index">
+  <div class="content-toolbar"><span>PUBLIC WRITING</span><span>{{ site.posts.size }} 篇</span></div>
+  {% if site.posts.size == 0 %}
+  <p class="empty-note">还没有公开文章。</p>
+  {% else %}
+  {% for post in site.posts %}
+  <a class="article-row" href="{{ post.url }}">
+    <div>
+      <p class="eyebrow">{{ post.kicker | default: "文章" }}</p>
+      <h2>{{ post.title }}</h2>
+      {% if post.description %}<p>{{ post.description }}</p>{% endif %}
+    </div>
+    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+  </a>
+  {% endfor %}
+  {% endif %}
+</section>
