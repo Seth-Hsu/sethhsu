@@ -1,0 +1,25 @@
+title: 商业系统实验室
+description: 商业系统实验室由许明良 Seth Hsu 发起。以系统论与复杂性科学研究企业战略、组织、运营和产业生态。
+url: https://sethhsu.com
+baseurl: ""
+lang: zh-CN
+timezone: Asia/Shanghai
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge
+permalink: /articles/:year/:month/:day/:title/
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .gitignore
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: article
+      nav: articles
